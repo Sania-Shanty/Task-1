@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Task Levels</title>
+  <style>
+    /* Base Styles */
+    :root {
+      --primary-color: #7e22ce; /* Purple */
+      --secondary-color: #ffffff; /* White */
+      --accent-color: #e74c3c;
+      --dark-color: #2c3e50;
+      --light-color: #ecf0f1;
+      --text-color: #333;
+      --text-light: #fff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --border-radius: 8px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+.color-output {
+  height: 50px;
+  border-radius: var(--border-radius);
+  margin-top: 10px;
+}
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-color);
+      padding: 20px;
+      transition: var(--transition);
+    }
+
+    /* Header Styles */
+    .page-header {
+      background: var(--primary-color);
+      color: var(--text-light);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Level Container */
+    .level-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .level-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .level-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .level-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    /* Task Styles */
+    .task-list {
+      padding: 1.5rem;
+    }
+
+    .task-item {
+      background-color: var(--light-color);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--primary-color);
+      transition: var(--transition);
+    }
+
+    .task-item:hover {
+      background-color: #f0f0f0;
+    }
+
+    .task-title {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    /* Form Elements */
+    .task-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-label {
+      font-weight: 600;
+    }
+
+    .form-input {
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: var(--transition);
+      align-self: flex-start;
+    }
+
+    .btn:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+    }
+
+    /* Output Areas */
+    .output-area {
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: #f8f9fa;
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--secondary-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .level-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .page-title {
+        font-size: 2rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <h1>Lab Work</h1>
+    <h2>Student Name:Sania Shanty</h2>
+    <h3>Roll No:SAU/CS/DMTECH(CSE)/2024/21</h3>
+  </div>
+
+  <div class="level-container">
+    <!-- Level 1 -->
+    <div class="level-card" data-level="1">
+      <div class="level-header">
+        <h2>Task 1</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">Task 1: Variables & Data Types</h3>
+          <form class="task-form" onsubmit="handleLevel1Task1(event)">
+            <div class="form-group">
+              <label class="form-label">Your Name:</label>
+              <input type="text" id="nameInput" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Number:</label>
+              <input type="number" id="numberInput" class="form-input" required>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+          </form>
+          <div id="output1" class="output-area"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="level-card" data-level="1">
+      <div class="level-header">
+        <h2>Task 2</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">Task 2: Conditions & Loops</h3>
+          <form class="task-form" onsubmit="handleLevel1Task2(event)">
+            <div class="form-group">
+              <label class="form-label">Enter Number (Even/Odd):</label>
+              <input type="number" id="evenOddInput" class="form-input" required>
+            </div>
+            <button type="submit" class="btn">Check</button>
+          </form>
+          <div id="output2" class="output-area"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level 2 -->
+    <div class="level-card" data-level="2">
+      <div class="level-header">
+        <h2>Task 3</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">Multiplication Table</h3>
+          <form class="task-form" onsubmit="handleLevel2Task1(event)">
+            <div class="form-group">
+              <label class="form-label">Enter a Number:</label>
+              <input type="number" id="tableInput" class="form-input" required>
+            </div>
+            <button type="submit" class="btn">Generate</button>
+          </form>
+          <ul id="tableOutput" class="output-area"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="level-card" data-level="2">
+      <div class="level-header">
+        <h2>Task 4</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">Simple Calculator</h3>
+          <form class="task-form" onsubmit="handleLevel2Task2(event)">
+            <div class="form-group">
+              <input type="number" id="calcNum1" class="form-input" placeholder="First Number" required>
+            </div>
+            <div class="form-group">
+              <select id="calcOperator" class="form-input">
+                <option value="+">+</option>
+                <option value="-">−</option>
+                <option value="*">×</option>
+                <option value="/">÷</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="number" id="calcNum2" class="form-input" placeholder="Second Number" required>
+            </div>
+            <button type="submit" class="btn">Calculate</button>
+          </form>
+          <p id="calcResult" class="output-area"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level 3 -->
+    <div class="level-card" data-level="3">
+      <div class="level-header">
+        <h2>Task 5</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">Calculate Square</h3>
+          <form class="task-form" onsubmit="handleLevel3Task1(event)">
+            <div class="form-group">
+              <input type="number" id="squareInput" class="form-input" placeholder="Enter a number" required>
+            </div>
+            <button type="submit" class="btn">Calculate Square</button>
+          </form>
+          <p id="squareOutput" class="output-area"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="level-card" data-level="3">
+      <div class="level-header">
+        <h2>Task 6</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">Color Mixer</h3>
+          <form class="task-form" onsubmit="handleLevel3Task2(event)">
+            <div class="color-mixer">
+              <input type="color" id="color1" value="#ff0000">
+              <input type="color" id="color2" value="#0000ff">
+            </div>
+            <button type="submit" class="btn">Mix Colors</button>
+          </form>
+          <div id="colorOutput" class="color-output"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Task 7: Keyboard and Form Events -->
+    <div class="level-card" data-level="4">
+      <div class="level-header">
+        <h2>Task 7: Keyboard and Form Events</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3>TASK 2: Press Keys</h3>
+          <input type="text" id="keyLogger" placeholder="Type something.." class="form-input">
+          <p>Check the console for logged keys</p>
+
+          <h3>Task 3: Form Submission</h3>
+          <form id="myForm">
+            <input type="text" placeholder="Enter your name" class="form-input">
+            <button type="submit" class="btn">Submit Form</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level 5 -->
+    <div class="level-card" data-level="5">
+      <div class="level-header">
+        <h2>Task 8</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">Show/Hide Password</h3>
+          <div class="password-container">
+            <input type="password" id="passwordField" class="form-input">
+            <button onclick="togglePassword()" class="btn">👁️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level 6 -->
+    <div class="level-card" data-level="6">
+      <div class="level-header">
+        <h2>Task 9</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">DOM Manipulation</h3>
+          <div id="domContainer">
+            <button onclick="addElement()" class="btn">Add Element</button>
+            <div id="elementList" class="output-area"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level 7 -->
+    <div class="level-card" data-level="7">
+      <div class="level-header">
+        <h2>Task 10</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">Live Form Validation</h3>
+          <form id="liveValidationForm" class="task-form">
+            <div class="form-group">
+              <input type="text" id="userName" class="form-input" placeholder="Username" oninput="liveValidate('userName')">
+              <span class="validation-msg" id="userNameMsg"></span>
+            </div>
+            <div class="form-group">
+              <input type="email" id="userEmail" class="form-input" placeholder="Email" oninput="liveValidate('userEmail')">
+              <span class="validation-msg" id="userEmailMsg"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level 8 -->
+    <div class="level-card" data-level="8">
+      <div class="level-header">
+        <h2>Task 11</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">Task Manager</h3>
+          <div class="task-manager">
+            <div class="task-manager-input">
+              <input type="text" id="taskInput" class="form-input" placeholder="New task...">
+              <button onclick="addTask()" class="btn">Add Task</button>
+            </div>
+            <ul id="taskList" class="task-list-items"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level 9 -->
+    <div class="level-card" data-level="9">
+      <div class="level-header">
+        <h2>Task 12</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">Notes App</h3>
+          <div class="notes-app">
+            <textarea id="noteInput" class="notes-textarea" placeholder="Write your note..."></textarea>
+            <button onclick="saveNote()" class="btn">Save Note</button>
+            <div id="notesList" class="output-area"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level 10 -->
+    <div class="level-card" data-level="10">
+      <div class="level-header">
+        <h2>Task 13</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">Welcome Back Msg</h3>
+          <div class="welcome-back">
+            <div class="form-group">
+              <input type="text" id="visitorName" class="form-input" placeholder="Enter your name">
+            </div>
+            <button onclick="saveVisitor()" class="btn">Save</button>
+            <p id="welcomeMessage" class="output-area"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level 11 -->
+    <div class="level-card" data-level="11">
+      <div class="level-header">
+        <h2>Task 14</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <h3 class="task-title">Light/Dark Mode</h3>
+          <div class="preferences">
+            <div class="form-group">
+              <h4>Theme</h4>
+              <select id="themeSelect" class="form-input" onchange="updatePreferences()">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <h4>Font Size</h4>
+              <input type="range" id="fontSize" class="form-input" min="12" max="24" onchange="updatePreferences()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Task 2: Keyboard Event - Log Keys Pressed
+    let keyLogger = document.getElementById("keyLogger");
+    keyLogger.addEventListener("keydown", function(event) {
+      console.log("Key Pressed:", event.key);
+    });
+
+    // Task 3: Form Event - Prevent Default Submission
+    let myForm = document.getElementById("myForm");
+    myForm.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevents form from submitting
+      alert("FORM SUBMISSION PREVENTED");
+    });
+
+    function handleLevel1Task1(event) {
+      event.preventDefault();
+      let name = document.getElementById("nameInput").value;
+      let number = parseInt(document.getElementById("numberInput").value);
+      let computedSum = number + 10;
+      let isValid = true;
+
+      console.log("Name:", name);
+      console.log("Number + 10:", computedSum);
+      console.log("Boolean:", isValid);
+
+      document.getElementById("output1").innerHTML =
+        `Name: ${name}<br>Number + 10: ${computedSum}<br>Boolean: ${isValid}`;
+    }
+
+    function handleLevel1Task2(event) {
+      event.preventDefault();
+      let num = parseInt(document.getElementById("evenOddInput").value);
+      let evenOdd = (num % 2 === 0) ? "Even" : "Odd";
+
+      let output = `<p>${num} is ${evenOdd}</p><p>For Loop:<br>`;
+      for (let i = 1; i <= 10; i++) output += i + " ";
+      output += "</p><p>While Loop:<br>";
+      let count = 5;
+      while (count >= 1) output += count-- + " ";
+      output += "</p>";
+
+      document.getElementById("output2").innerHTML = output;
+    }
+
+    function handleLevel2Task1(event) {
+      event.preventDefault();
+      let num = parseInt(document.getElementById("tableInput").value);
+      let output = "";
+      for (let i = 1; i <= 10; i++) {
+        output += `<li>${num} × ${i} = ${num * i}</li>`;
+      }
+      document.getElementById("tableOutput").innerHTML = output;
+    }
+
+    function handleLevel2Task2(event) {
+      event.preventDefault();
+      let num1 = parseFloat(document.getElementById("calcNum1").value);
+      let num2 = parseFloat(document.getElementById("calcNum2").value);
+      let operator = document.getElementById("calcOperator").value;
+      let result;
+
+      switch (operator) {
+        case "+": result = num1 + num2; break;
+        case "-": result = num1 - num2; break;
+        case "*": result = num1 * num2; break;
+        case "/": result = num2 !== 0 ? num1 / num2 : "Cannot divide by 0"; break;
+      }
+
+      document.getElementById("calcResult").innerText = "Result: " + result;
+    }
+
+    function handleLevel3Task1(event) {
+      event.preventDefault();
+      const num = parseFloat(document.getElementById("squareInput").value);
+      document.getElementById("squareOutput").innerText = `Square of ${num} is ${num * num}`;
+    }
+
+    function handleLevel3Task2(event) {
+      event.preventDefault();
+      const color1 = document.getElementById("color1").value;
+      const color2 = document.getElementById("color2").value;
+      const output = document.getElementById("colorOutput");
+      output.style.background = `linear-gradient(to right, ${color1}, ${color2})`;
+    }
+
+    function togglePassword() {
+      const field = document.getElementById('passwordField');
+      field.type = field.type === 'password' ? 'text' : 'password';
+    }
+
+    function addElement() {
+      const list = document.getElementById('elementList');
+      const newElement = document.createElement('div');
+      newElement.textContent = `Item ${list.children.length + 1}`;
+      newElement.onclick = () => newElement.remove();
+      list.appendChild(newElement);
+    }
+
+    function liveValidate(field) {
+      const value = document.getElementById(field).value;
+      let message = '';
+      
+      switch(field) {
+        case 'userName':
+          message = value.length < 3 ? 'Too short' : '✓';
+          break;
+        case 'userEmail':
+          message = value.includes('@') ? '✓' : 'Invalid email';
+          break;
+      }
+      
+      document.getElementById(`${field}Msg`).textContent = message;
+    }
+
+    function addTask() {
+      const input = document.getElementById('taskInput');
+      if(input.value) {
+        const li = document.createElement('li');
+        li.innerHTML = `${input.value} <button onclick="this.parentElement.remove()">×</button>`;
+        document.getElementById('taskList').appendChild(li);
+        input.value = '';
+      }
+    }
+
+    let notes = JSON.parse(localStorage.getItem('notes') || '[]');
+
+    function saveNote() {
+      const text = document.getElementById('noteInput').value;
+      if(text) {
+        notes.push({text, date: new Date().toISOString()});
+        localStorage.setItem('notes', JSON.stringify(notes));
+        displayNotes();
+        document.getElementById('noteInput').value = '';
+      }
+    }
+
+    function displayNotes() {
+      const html = notes.map(note => `
+        <div class="note-item">
+          ${note.text}
+          <small class="note-date">${new Date(note.date).toLocaleDateString()}</small>
+        </div>
+      `).join('');
+      document.getElementById('notesList').innerHTML = html;
+    }
+
+    function saveVisitor() {
+      const name = document.getElementById('visitorName').value;
+      if(name) {
+        sessionStorage.setItem('visitorName', name);
+        showWelcome();
+      }
+    }
+
+    function showWelcome() {
+      const name = sessionStorage.getItem('visitorName');
+      if(name) {
+        document.getElementById('welcomeMessage').textContent = `Welcome back, ${name}!`;
+      }
+    }
+
+    function updatePreferences() {
+      const theme = document.getElementById('themeSelect').value;
+      const fontSize = document.getElementById('fontSize').value;
+      
+      if (theme === 'dark') {
+        document.body.classList.add('dark-theme');
+      } else {
+        document.body.classList.remove('dark-theme');
+      }
+      
+      document.body.style.fontSize = `${fontSize}px`;
+      localStorage.setItem('userPreferences', JSON.stringify({theme, fontSize}));
+    }
+
+    window.onload = function() {
+      displayNotes();
+      showWelcome();
+      
+      const prefs = JSON.parse(localStorage.getItem('userPreferences') || '{}');
+      if(prefs.theme) {
+        document.getElementById('themeSelect').value = prefs.theme;
+        document.getElementById('fontSize').value = prefs.fontSize || 16;
+        updatePreferences();
+      }
+    };
+  </script>
+</body>
+</html>
